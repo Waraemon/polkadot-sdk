@@ -1,52 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1756901004068,
+  "lastUpdate": 1756936022264,
   "repoUrl": "https://github.com/paritytech/polkadot-sdk",
   "entries": {
     "statement-distribution-regression-bench": [
-      {
-        "commit": {
-          "author": {
-            "email": "git@kchr.de",
-            "name": "Bastian Köcher",
-            "username": "bkchr"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "00d8eea8d2f6fccbc709ae759192684472cf92e5",
-          "message": "pallet-scheduler: Put back postponed tasks into the agenda (#7790)\n\nRight now `pallet-scheduler` is not putting back postponed tasks into\nthe agenda when the early weight check is failing. This pull request\nensures that these tasks are put back into the agenda and are not just\n\"lost\".\n\n---------\n\nCo-authored-by: cmd[bot] <41898282+github-actions[bot]@users.noreply.github.com>\nCo-authored-by: Guillaume Thiolliere <gui.thiolliere@gmail.com>\nCo-authored-by: Alexandre R. Baldé <alexandre.balde@parity.io>",
-          "timestamp": "2025-03-05T23:10:19Z",
-          "tree_id": "c83654f6ee883ce8e82a23375eb7f307fe1982b1",
-          "url": "https://github.com/paritytech/polkadot-sdk/commit/00d8eea8d2f6fccbc709ae759192684472cf92e5"
-        },
-        "date": 1741219901119,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Sent to peers",
-            "value": 127.96199999999993,
-            "unit": "KiB"
-          },
-          {
-            "name": "Received from peers",
-            "value": 106.39999999999996,
-            "unit": "KiB"
-          },
-          {
-            "name": "test-environment",
-            "value": 0.044669192183999985,
-            "unit": "seconds"
-          },
-          {
-            "name": "statement-distribution",
-            "value": 0.03508629630599999,
-            "unit": "seconds"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -21999,6 +21955,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "statement-distribution",
             "value": 0.034591716534000005,
+            "unit": "seconds"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "Sajjon@users.noreply.github.com",
+            "name": "Alexander Cyon",
+            "username": "Sajjon"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "63958c454643ddafdde8be17af5334aa95954550",
+          "message": "move released primitives and APIs out of staging (#9443)\n\nSolves https://github.com/paritytech/polkadot-sdk/issues/9400\n\nNo logic change, only moves types from\n`polkadot/primitives/src/vstaging` into `polkadot/primitives/src/v9`\n(renamed from `v8` to `v9`).\n\n---------\n\nCo-authored-by: Alexander Cyon <alex.cyon@parity.com>\nCo-authored-by: cmd[bot] <41898282+github-actions[bot]@users.noreply.github.com>\nCo-authored-by: Andrei Sandu <54316454+sandreim@users.noreply.github.com>\nCo-authored-by: Dmitry Sinyavin <dmitry.sinyavin@parity.io>\nCo-authored-by: s0me0ne-unkn0wn <48632512+s0me0ne-unkn0wn@users.noreply.github.com>",
+          "timestamp": "2025-09-03T20:30:44Z",
+          "tree_id": "e657de1eac98014fd24bc497703ad0c8e5c9d974",
+          "url": "https://github.com/paritytech/polkadot-sdk/commit/63958c454643ddafdde8be17af5334aa95954550"
+        },
+        "date": 1756936004459,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Sent to peers",
+            "value": 127.94400000000002,
+            "unit": "KiB"
+          },
+          {
+            "name": "Received from peers",
+            "value": 106.39999999999996,
+            "unit": "KiB"
+          },
+          {
+            "name": "test-environment",
+            "value": 0.04490455293199996,
+            "unit": "seconds"
+          },
+          {
+            "name": "statement-distribution",
+            "value": 0.034787838828,
             "unit": "seconds"
           }
         ]
