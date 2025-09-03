@@ -1,62 +1,8 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1756900949579,
+  "lastUpdate": 1756935968208,
   "repoUrl": "https://github.com/paritytech/polkadot-sdk",
   "entries": {
     "availability-distribution-regression-bench": [
-      {
-        "commit": {
-          "author": {
-            "email": "37865735+clangenb@users.noreply.github.com",
-            "name": "clangenb",
-            "username": "clangenb"
-          },
-          "committer": {
-            "email": "noreply@github.com",
-            "name": "GitHub",
-            "username": "web-flow"
-          },
-          "distinct": true,
-          "id": "a377caec8319c5fef0ee6f61da84bf1b0204e866",
-          "message": "[glutton-westend] and add sudo key to genesis config (#7794)\n\nI discovered in https://github.com/paritytech/polkadot-sdk/pull/7459,\nthat the overhead benchmark is not working for glutton-westend, as the\nclient can't send `system.remark` extrinsics. This was due to 2 issues:\n\n1. Alice was not set as sudo. Hence, the `CheckOnlySudoAccount` deemed\nthe extrinsic as invalid.\n2. The `CheckNonce` TxExtension also marked the extrinsic as invalid, as\nthe account doesn't exist (because glutton has no balances pallet).\n\nThis PR fixes the 1.) for now. I wanted to simply remove the\n`CheckNonce` in the TxExtension to fix 2., but it turns out that this is\nnot possible, as the tx-pool needs the nonce tag to identify the\ntransaction. https://github.com/paritytech/polkadot-sdk/pull/6884 will\nfix sending extrinsics on glutton.\n\n---------\n\nCo-authored-by: cmd[bot] <41898282+github-actions[bot]@users.noreply.github.com>\nCo-authored-by: Bastian Köcher <git@kchr.de>\nCo-authored-by: s0me0ne-unkn0wn <48632512+s0me0ne-unkn0wn@users.noreply.github.com>",
-          "timestamp": "2025-03-06T15:11:00Z",
-          "tree_id": "a1c792e932354f1045f12686a33922a7c994d62f",
-          "url": "https://github.com/paritytech/polkadot-sdk/commit/a377caec8319c5fef0ee6f61da84bf1b0204e866"
-        },
-        "date": 1741277624620,
-        "tool": "customSmallerIsBetter",
-        "benches": [
-          {
-            "name": "Sent to peers",
-            "value": 18481.666666666653,
-            "unit": "KiB"
-          },
-          {
-            "name": "Received from peers",
-            "value": 433.3333333333332,
-            "unit": "KiB"
-          },
-          {
-            "name": "test-environment",
-            "value": 0.008496121166666775,
-            "unit": "seconds"
-          },
-          {
-            "name": "availability-distribution",
-            "value": 0.012451890786666664,
-            "unit": "seconds"
-          },
-          {
-            "name": "availability-store",
-            "value": 0.15370730886000003,
-            "unit": "seconds"
-          },
-          {
-            "name": "bitfield-distribution",
-            "value": 0.02395634813333334,
-            "unit": "seconds"
-          }
-        ]
-      },
       {
         "commit": {
           "author": {
@@ -26999,6 +26945,60 @@ window.BENCHMARK_DATA = {
           {
             "name": "availability-distribution",
             "value": 0.013017625280000002,
+            "unit": "seconds"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "Sajjon@users.noreply.github.com",
+            "name": "Alexander Cyon",
+            "username": "Sajjon"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "63958c454643ddafdde8be17af5334aa95954550",
+          "message": "move released primitives and APIs out of staging (#9443)\n\nSolves https://github.com/paritytech/polkadot-sdk/issues/9400\n\nNo logic change, only moves types from\n`polkadot/primitives/src/vstaging` into `polkadot/primitives/src/v9`\n(renamed from `v8` to `v9`).\n\n---------\n\nCo-authored-by: Alexander Cyon <alex.cyon@parity.com>\nCo-authored-by: cmd[bot] <41898282+github-actions[bot]@users.noreply.github.com>\nCo-authored-by: Andrei Sandu <54316454+sandreim@users.noreply.github.com>\nCo-authored-by: Dmitry Sinyavin <dmitry.sinyavin@parity.io>\nCo-authored-by: s0me0ne-unkn0wn <48632512+s0me0ne-unkn0wn@users.noreply.github.com>",
+          "timestamp": "2025-09-03T20:30:44Z",
+          "tree_id": "e657de1eac98014fd24bc497703ad0c8e5c9d974",
+          "url": "https://github.com/paritytech/polkadot-sdk/commit/63958c454643ddafdde8be17af5334aa95954550"
+        },
+        "date": 1756935949961,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Received from peers",
+            "value": 433.3333333333332,
+            "unit": "KiB"
+          },
+          {
+            "name": "Sent to peers",
+            "value": 18481.666666666653,
+            "unit": "KiB"
+          },
+          {
+            "name": "availability-distribution",
+            "value": 0.013144804786666662,
+            "unit": "seconds"
+          },
+          {
+            "name": "bitfield-distribution",
+            "value": 0.022607926946666662,
+            "unit": "seconds"
+          },
+          {
+            "name": "availability-store",
+            "value": 0.15818924106666668,
+            "unit": "seconds"
+          },
+          {
+            "name": "test-environment",
+            "value": 0.007636241046666638,
             "unit": "seconds"
           }
         ]
