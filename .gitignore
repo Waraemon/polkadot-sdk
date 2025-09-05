@@ -9,6 +9,7 @@
 .vscode
 .zed
 .wasm-binaries
+.github
 *.adoc
 *.bin
 *.iml
